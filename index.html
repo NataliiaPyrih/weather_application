@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/a22dd34750.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather App</title>
+</head>
+
+<body>
+    <div class="container">
+        <form id="search-city">
+            <input type="text" placeholder="Enter a city" autocomplete="off" autofocus="on" class="search"
+                id="city-input" />
+            <input type="submit" value="Search" class="search_button" />
+        </form>
+        <button class="location_button">🔍</button>
+        <br />
+        <div class="row">
+            <div class="col-5">
+                <h1 id="city">Kharkiv</h1>
+                <p class="date" id="date">Wednesday 23:00</p>
+                <div class="row">
+                    <div class="col-6">
+                        <h2><span id="temp">17</span>
+                            <span class="units">
+                                <a href="#" class="deg" id="celsius-temp">° C</a>
+                                |
+                                <a href="#" class="deg" id="fahrenheit-temp">° F</a></span>
+                        </h2>
+                    </div>
+                    <div class="col-6">
+                        <p class="current"><span id="currImg">☁</span>
+                            <br />
+                            <span id="descr">Clouds</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-6">
+                <div class="more">
+                    <div class="row">
+                        <div class="col-6">
+                            Humidity
+                        </div>
+                        <div class="col-6" id="hum">
+                            70 %
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            Wind speed
+                        </div>
+                        <div class="col-6" id="windSp">
+                            5 m/s
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            Pressure
+                        </div>
+                        <div class="col-6" id="press">
+                            1015
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-2">
+                <p class="mr_day">Thursday</p>
+                <p class="mr_date">15.09.22</p>
+                <p class="mr_emoji">🌥</p>
+                <p class="mr_temp">18° C</p>
+            </div>
+            <div class="col-2">
+                <p class="mr_day">Friday</p>
+                <p class="mr_date">16.09.22</p>
+                <p class="mr_emoji">☁</p>
+                <p class="mr_temp">18° C</p>
+            </div>
+            <div class="col-2">
+                <p class="mr_day">Saturday</p>
+                <p class="mr_date">17.09.22</p>
+                <p class="mr_emoji">☀</p>
+                <p class="mr_temp">20° C</p>
+            </div>
+            <div class="col-2">
+                <p class="mr_day">Sunday</p>
+                <p class="mr_date">18.09.22</p>
+                <p class="mr_emoji">🌤</p>
+                <p class="mr_temp">14° C</p>
+            </div>
+            <div class="col-2">
+                <p class="mr_day">Monday</p>
+                <p class="mr_date">19.09.22</p>
+                <p class="mr_emoji">☁</p>
+                <p class="mr_temp">13° C</p>
+            </div>
+            <script src="index.js">
+
+            </script>
+</body>
+
+</html>

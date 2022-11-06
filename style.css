@@ -1,0 +1,106 @@
+.container{
+margin:50px 40px;
+padding:20px;
+border: 2px solid #007cb9;
+border-radius: 4px;
+}
+body{
+     max-width:700px;
+     background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+.search{
+   margin-right:20px;
+   border-radius: 4px;
+   border:2px solid #007cb9;
+   height: 44px;
+    outline: 0;
+    padding: 10px;
+    width: 300px;
+}
+.search_button, .location_button{
+    border: 2px solid #007cb9;
+    border-radius: 4px;
+    padding: 7px 10px;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 20%);
+    transition: all 120ms ease-in-out;
+}
+.location_button{
+    position:relative;
+    left:400px;
+    bottom:43px;
+    margin-left: 10px;
+}
+.search_button:hover,.location_button:hover {
+    cursor:pointer;
+    color:#ecf3f5;
+    background-color: #007cb9;
+    box-shadow: 5px 15px 10px rgb(0 0 0 / 50%);
+
+}
+h1, h2{text-align:center;}
+
+h2{
+    position:relative;
+    bottom:-11px;
+    right:-30px;
+}
+
+#temp{
+    font-size:40px;
+    font-weight:400;
+}
+ .units{
+    font-size:16px;
+    position:relative;
+    top:-20px;
+}
+
+.deg{
+    text-decoration:none;
+}
+
+.deg:hover{
+    text-decoration:underline;
+}
+
+.current{
+    text-align:center;
+    font-size:20px;
+    position:relative;
+    left:20px;
+
+}
+.col-1{
+   border-right: 2px solid #007cb9;
+}
+.more{
+    font-size:20px;
+}
+
+.date{
+    margin-right:5px;
+    text-align:center;
+}
+
+.mr_day{
+    position: relative;
+    text-align:center;
+    font-size:19px;
+
+}
+.mr_date{
+    position:relative;
+    text-align:center;
+    font-size:17px;
+}
+.mr_emoji{
+    position:relative;
+    top:10px;
+    text-align:center;
+    font-size:21px;
+}
+.mr_temp{
+    position:relative;
+    text-align:center;
+    font-size:19px;
+}
