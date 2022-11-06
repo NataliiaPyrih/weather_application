@@ -27,15 +27,19 @@ body{
 .location_button{
     position:relative;
     left:400px;
-    bottom:43px;
+    bottom:42px;
     margin-left: 10px;
+    padding:7px 15px;
 }
+.loc-icon{
+    color:rgb(20, 29, 37);
+}
+
 .search_button:hover,.location_button:hover {
     cursor:pointer;
     color:#ecf3f5;
     background-color: #007cb9;
     box-shadow: 5px 15px 10px rgb(0 0 0 / 50%);
-
 }
 h1, h2{text-align:center;}
 
@@ -103,4 +107,8 @@ h2{
     position:relative;
     text-align:center;
     font-size:19px;
+}
+
+#signature{
+    margin:0 50px;
 }
