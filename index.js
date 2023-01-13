@@ -105,6 +105,10 @@ function displayWeather(response) {
     let currDescImg = document.querySelector("#currImg");
     currDescImg.innerHTML = `${DescrImg[description].icon}`;
   }
+
+let iconElement = document.querySelector(".icon");
+iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 function getTempCelc() {
