@@ -68,7 +68,8 @@ function displayWeather(response) {
   let h1 = document.querySelector("#city");
   h1.innerHTML = `${response.data.name}`;
 
-  let tempEl = Math.round(response.data.main.temp);
+  celsiusTemperature=response.data.main.temp;
+  let tempEl = Math.round(celsiusTemperature);
   let humidity = response.data.main.humidity;
   let windSpeed = response.data.wind.speed;
   let pressure = response.data.main.pressure;
@@ -111,16 +112,23 @@ iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.dat
 iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-function getTempCelc() {
+function getTempCelc(event) {
+  event.preventDefault();
   let temp = document.querySelector("#temp");
-  temp.innerHTML = 17;
+  temp.innerHTML =Math.round(celsiusTemperature);
+linkFahr.classList.remove("deg");
+linkCelc.classList.add("deg");
 }
 
-function getTempFahr() {
+function getTempFahr(event) {
   let temp = document.querySelector("#temp");
-  let currentTemp = (temp.innerHTML * 9) / 5 + 32;
+  let currentTemp = (celsiusTemperature* 9) / 5 + 32;
   currentTemp = Math.round(currentTemp);
   temp.innerHTML = `${currentTemp}`;
+ event.preventDefault();
+linkCelc.classList.remove("deg");
+linkFahr.classList.add("deg");
+
 }
 
 let currentDate = new Date();
@@ -137,3 +145,4 @@ let linkFahr = document.querySelector("#fahrenheit-temp");
 
 linkCelc.addEventListener("click", getTempCelc);
 linkFahr.addEventListener("click", getTempFahr);
+let celsiusTemperature=null;

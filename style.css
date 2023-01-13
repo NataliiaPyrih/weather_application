@@ -61,11 +61,15 @@ h2{
 
 .deg{
     text-decoration:none;
+    color:#042738;
+    cursor:default;
 }
 
 .deg:hover{
-    text-decoration:underline;
+    text-decoration:none;
+    color:#042738;
 }
+
 
 .current{
     text-align:center;
