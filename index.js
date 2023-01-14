@@ -87,29 +87,11 @@ function displayWeather(response) {
   let pressureEl = document.querySelector("#press");
   pressureEl.innerHTML = `${pressure}`;
 
-  let DescrImg = {
-    Clouds: { desc: "Clouds", icon: "☁" },
-
-    Clear: { desc: "Clear", icon: "☀" },
-
-    Thunderstorm: { desc: "Thunderstorm", icon: "🌪" },
-
-    Rain: {
-      desc: "Rain",
-      icon: "🌨"
-    }
-  };
-  if (DescrImg[description] === undefined) {
-  } else {
-    let currentDesc = document.querySelector("#descr");
-    currentDesc.innerHTML = `${DescrImg[description].desc}`;
-    let currDescImg = document.querySelector("#currImg");
-    currDescImg.innerHTML = `${DescrImg[description].icon}`;
-  }
-
 let iconElement = document.querySelector(".icon");
 iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 iconElement.setAttribute("alt", response.data.weather[0].description);
+let currentDesc = document.querySelector("#descr");
+currentDesc.innerHTML=response.data.weather[0].description;
 }
 
 function getTempCelc(event) {
