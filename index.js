@@ -47,6 +47,7 @@ function searchCity(event) {
   }
   apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayWeather);
+
 }
 
 function findCity() {
@@ -128,3 +129,20 @@ let linkFahr = document.querySelector("#fahrenheit-temp");
 linkCelc.addEventListener("click", getTempCelc);
 linkFahr.addEventListener("click", getTempFahr);
 let celsiusTemperature=null;
+
+function display_weather_forecast(){
+let forecastEl=document.querySelector("#weather-forecast");
+let forecastHTML=`<div class="row">`;
+forecastHTML= forecastHTML+ `    <div class="row">
+                <div class="col-2">
+                    <p class="mr_day">Thursday</p>
+                    <p class="mr_date">15.09.22</p>
+                    <img class="mr_emoji1" src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="70px"
+                        height="50 px"></img>
+                    <p class="mr_temp">18° C</p>
+                </div>
+            </div>`;
+forecastHTML=forecastHTML+`</div>`;
+forecastEl.innerHTML=forecastHTML;
+}
+ display_weather_forecast();
