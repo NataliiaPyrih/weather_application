@@ -65,6 +65,7 @@ function capitalize(str) {
   let lower = str.toLowerCase().trim();
   return str.charAt(0).toUpperCase() + lower.slice(1);
 }
+
 function displayWeather(response) {
   let h1 = document.querySelector("#city");
   h1.innerHTML = `${response.data.name}`;
@@ -93,6 +94,8 @@ iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.dat
 iconElement.setAttribute("alt", response.data.weather[0].description);
 let currentDesc = document.querySelector("#descr");
 currentDesc.innerHTML=response.data.weather[0].description;
+
+getForecast(response.data.coord);
 }
 
 function getTempCelc(event) {
@@ -130,19 +133,51 @@ linkCelc.addEventListener("click", getTempCelc);
 linkFahr.addEventListener("click", getTempFahr);
 let celsiusTemperature=null;
 
-function display_weather_forecast(){
+function formatDay(timestamp){
+let date= new Date(timestamp*1000);
+let day=date.getDay();
+let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+return days[day];
+}
+
+function display_weather_forecast(response){
 let forecastEl=document.querySelector("#weather-forecast");
+let forecast=response.data.daily;
 let forecastHTML=`<div class="row">`;
-forecastHTML= forecastHTML+ `    <div class="row">
+forecast.forEach(function(forecastDay,index){
+if(index<6){
+forecastHTML = 
+          forecastHTML+ 
+            `
                 <div class="col-2">
-                    <p class="mr_day">Thursday</p>
+                    <p class="mr_day">${formatDay(forecastDay.dt)}</p>
                     <p class="mr_date">15.09.22</p>
-                    <img class="mr_emoji1" src="http://openweathermap.org/img/wn/50d@2x.png" alt="" width="70px"
-                        height="50 px"></img>
-                    <p class="mr_temp">18° C</p>
-                </div>
-            </div>`;
+                    <img class="mr_emoji1" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="70px"
+                        height="70 px"></img>
+                    <p class="mr_temp"><span class="temp-max"> ${Math.round(
+            forecastDay.temp.max
+          )}° </span>
+          <span class="temp-min"> ${Math.round(
+            forecastDay.temp.min
+          )}° </span></p>
+                </div>`;
+}
+})
 forecastHTML=forecastHTML+`</div>`;
 forecastEl.innerHTML=forecastHTML;
 }
- display_weather_forecast();
+
+function getForecast(coordinates){
+let apiKey1 = "b400ae3b711a616262d18b0ca2cbe78f";
+let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey1}&units=metric`;
+console.log(apiUrl);
+axios.get(apiUrl).then(display_weather_forecast);
+}
