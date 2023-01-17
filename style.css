@@ -94,13 +94,7 @@ h2{
     position: relative;
     text-align:center;
     font-size:19px;
-
-}
-.mr_date{
-    position:relative;
-    text-align:center;
-    font-size:17px;
-    margin:0;
+    margin-bottom: 0px;
 }
 
 .mr_emoji1{

@@ -36,17 +36,15 @@ function getDate(currentDate) {
   date.innerHTML = `${day} ${hour}:${minut} `;
 }
 
+function search(city){
+  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  axios.get(apiUrl).then(displayWeather);
+}
 function searchCity(event) {
   event.preventDefault();
   let Inputcity1 = document.querySelector("#city-input");
   let Inputcity = capitalize(Inputcity1.value);
-  if (Inputcity === null) {
-    city = "Kharkiv";
-  } else {
-    city = `${Inputcity}`;
-  }
-  apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(apiUrl).then(displayWeather);
+  search(Inputcity);
 
 }
 
@@ -159,7 +157,6 @@ forecastHTML =
             `
                 <div class="col-2">
                     <p class="mr_day">${formatDay(forecastDay.dt)}</p>
-                    <p class="mr_date">15.09.22</p>
                     <img class="mr_emoji1" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="70px"
                         height="70 px"></img>
                     <p class="mr_temp"><span class="temp-max"> ${Math.round(
@@ -178,6 +175,7 @@ forecastEl.innerHTML=forecastHTML;
 function getForecast(coordinates){
 let apiKey1 = "b400ae3b711a616262d18b0ca2cbe78f";
 let apiUrl=`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey1}&units=metric`;
-console.log(apiUrl);
 axios.get(apiUrl).then(display_weather_forecast);
 }
+
+search("Kharkiv");
