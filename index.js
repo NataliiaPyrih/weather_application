@@ -45,7 +45,8 @@ function searchCity(event) {
   let Inputcity1 = document.querySelector("#city-input");
   let Inputcity = capitalize(Inputcity1.value);
   search(Inputcity);
-
+  linkFahr.classList.remove("deg");
+linkCelc.classList.add("deg");
 }
 
 function findCity() {
